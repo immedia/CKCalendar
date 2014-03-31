@@ -35,7 +35,7 @@ typedef enum {
 
 - (id)initWithStartDay:(CKCalendarStartDay)firstDay;
 - (id)initWithStartDay:(CKCalendarStartDay)firstDay frame:(CGRect)frame;
-
+@property (nonatomic, strong) NSDate *monthShowing;
 @property (nonatomic) CKCalendarStartDay calendarStartDay;
 @property (nonatomic, strong) NSLocale *locale;
 
@@ -64,6 +64,7 @@ typedef enum {
 // Helper methods for delegates, etc.
 - (BOOL)date:(NSDate *)date1 isSameDayAsDate:(NSDate *)date2;
 - (BOOL)dateIsInCurrentMonth:(NSDate *)date;
+- (NSDate *)moveToNextMonth:(NSInteger)index;
 
 @end
 
