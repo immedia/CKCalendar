@@ -657,7 +657,7 @@
 - (NSDate *)moveToNextMonth:(NSInteger)index {
     NSDateComponents* comps = [[NSDateComponents alloc] init];
     [comps setMonth:index];
-    return [self.calendar dateByAddingComponents:comps toDate:self.monthShowing options:0];
+    return [self.calendar dateByAddingComponents:comps toDate:[NSDate date] options:0];
 }
 
 
