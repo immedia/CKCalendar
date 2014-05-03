@@ -209,6 +209,9 @@
     NSMutableArray *dateButtons = [NSMutableArray array];
     for (NSInteger i = 1; i <= 42; i++) {
         DateButton *dateButton = [DateButton buttonWithType:UIButtonTypeCustom];
+        UIView *keyColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 10)];
+        keyColorView.backgroundColor = [UIColor redColor];
+        [dateButton addSubview:keyColorView];
         dateButton.calendar = self.calendar;
         [dateButtons addObject:dateButton];
     }
@@ -298,6 +301,7 @@
         DateButton *dateButton = [self.dateButtons objectAtIndex:dateButtonPosition];
 
         dateButton.date = date;
+        NSLog(@"date %@", date);
         CKDateItem *item = [[CKDateItem alloc] init];
         if ([self _dateIsToday:dateButton.date]) {
             item.textColor = [UIColor lightGrayColor];
