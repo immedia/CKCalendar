@@ -19,6 +19,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <QuartzCore/QuartzCore.h>
 #import "CKCalendarView.h"
+#import "FCCalendarPoints.h"
 
 #define BUTTON_MARGIN 4
 #define CALENDAR_MARGIN 0
@@ -83,6 +84,9 @@
     } else {
         [self setTitle:@"" forState:UIControlStateNormal];
     }
+    UIView *keyColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 24, 32, 8)];
+    keyColorView.tag = 999;
+    [self addSubview:keyColorView];
 }
 
 @end
@@ -296,10 +300,34 @@
     NSUInteger dateButtonPosition = 0;
     while ([date laterDate:endDate] != date) {
         DateButton *dateButton = [self.dateButtons objectAtIndex:dateButtonPosition];
-        UIView *keyColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 10)];
-        keyColorView.backgroundColor = [UIColor redColor];
-        [dateButton addSubview:keyColorView];
-
+        UIView *keyColorView = [dateButton viewWithTag:999];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSString *currentDate = [dateFormatter stringFromDate:date];
+        NSArray *returnSet = [self.pointsArray filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", currentDate, currentDate]];
+        if (returnSet.count  > 0) {
+            FCCalendarPoints *points = (FCCalendarPoints *)[returnSet objectAtIndex:0];
+            if ([[points.pointsDescription lowercaseString] isEqualToString:@"peak4"]) {
+                keyColorView.backgroundColor = [UIColor yellowColor];
+            } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"peak3"]) {
+                keyColorView.backgroundColor = [UIColor redColor];
+            } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"peak2"]) {
+                keyColorView.backgroundColor = [UIColor purpleColor];
+            } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"peak1"]) {
+                keyColorView.backgroundColor = [UIColor greenColor];
+            } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"medium"]) {
+                keyColorView.backgroundColor = [UIColor blackColor];
+            } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"low"]) {
+                keyColorView.backgroundColor = [UIColor blueColor];
+            } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"high"]) {
+                keyColorView.backgroundColor = [UIColor brownColor];
+            } else {
+                keyColorView.backgroundColor = [UIColor whiteColor];
+            }
+        } else {
+         keyColorView.backgroundColor = [UIColor whiteColor];
+        }
         
         dateButton.date = date;
         CKDateItem *item = [[CKDateItem alloc] init];
