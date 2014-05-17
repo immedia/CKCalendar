@@ -309,21 +309,21 @@
         if (returnSet.count  > 0) {
             FCCalendarPoints *points = (FCCalendarPoints *)[returnSet objectAtIndex:0];
             if ([[points.pointsDescription lowercaseString] isEqualToString:@"peak4"]) {
-                keyColorView.backgroundColor = [UIColor colorWithRed:255/255 green:0/255 blue:198/255 alpha:1];
+                keyColorView.backgroundColor = [UIColor colorWithRed:255.0/255 green:0.0/255 blue:198.0/255 alpha:1];
             } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"peak3"]) {
-                keyColorView.backgroundColor = [UIColor colorWithRed:255/255 green:0/255 blue:0/255 alpha:1];
+                keyColorView.backgroundColor = [UIColor colorWithRed:255.0/255 green:0.0/255 blue:0.0/255 alpha:1];
             } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"peak2"]) {
-                keyColorView.backgroundColor = [UIColor colorWithRed:255/255 green:138/255 blue:0/255 alpha:1];
+                keyColorView.backgroundColor = [UIColor colorWithRed:255.0/255 green:138.0/255 blue:0.0/255 alpha:1];
             } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"peak1"]) {
-                keyColorView.backgroundColor = [UIColor colorWithRed:255/255 green:234/255 blue:0/255 alpha:1];
+                keyColorView.backgroundColor = [UIColor colorWithRed:255.0/255 green:234.0/255 blue:0.0/255 alpha:1];
             } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"medium"]) {
-                keyColorView.backgroundColor = [UIColor colorWithRed:0/255 green:57/255 blue:151/255 alpha:1];
+                keyColorView.backgroundColor = [UIColor colorWithRed:0.0/255 green:57.0/255 blue:151.0/255 alpha:1];
             } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"low"]) {
-                keyColorView.backgroundColor = [UIColor colorWithRed:0/255 green:114/255 blue:188/255 alpha:1];
+                keyColorView.backgroundColor = [UIColor colorWithRed:0.0/255 green:114.0/255 blue:188.0/255 alpha:1];
             } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"high"]) {
-                keyColorView.backgroundColor = [UIColor colorWithRed:22/255 green:148/255 blue:1/255 alpha:1];
+                keyColorView.backgroundColor = [UIColor colorWithRed:22.0/255 green:148.0/255 blue:1.0/255 alpha:1];
             } else if ([[points.pointsDescription lowercaseString] isEqualToString:@"out of season"]) {
-                keyColorView.backgroundColor = [UIColor colorWithRed:59/255 green:77/255 blue:100/255 alpha:1];
+                keyColorView.backgroundColor = [UIColor colorWithRed:59.0/255 green:77.0/255 blue:100.0/255 alpha:1];
             } else {
                 keyColorView.backgroundColor = [UIColor whiteColor];
             }
