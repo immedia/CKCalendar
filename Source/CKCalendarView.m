@@ -87,6 +87,10 @@
     UIView *keyColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 22, 32, 6)];
     keyColorView.tag = 999;
     [self addSubview:keyColorView];
+    
+    UIImageView *holidayView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
+    holidayView.tag = 888;
+    [self addSubview:holidayView];
 }
 
 @end
@@ -328,6 +332,13 @@
             }
         } else {
             keyColorView.backgroundColor = [UIColor whiteColor];
+        }
+        
+        UIImageView *holidayView = (UIImageView *)[dateButton viewWithTag:888];
+        if ([self.publicHolidayArray containsObject:currentDate]) {
+            [holidayView setImage:[UIImage imageNamed:@"publicHolidayImages"]];
+        } else {
+            [holidayView setImage:nil];
         }
         
         dateButton.date = date;
