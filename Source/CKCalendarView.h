@@ -46,7 +46,7 @@ typedef enum {
 
 @property (nonatomic, weak) id<CKCalendarDelegate> delegate;
 
-@property (nonatomic, strong) NSArray *pointsArray, *publicHolidayArray;
+@property (nonatomic, strong) NSArray *pointsArray, *publicHolidayArray, *coastalHolidaysArray, *inlandHolidaysArray;
 
 // Theming
 @property (nonatomic, strong) UIFont *titleFont;

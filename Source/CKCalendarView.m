@@ -20,6 +20,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CKCalendarView.h"
 #import "FCCalendarPoints.h"
+#import "FCSchoolHoliday.h"
 
 #define BUTTON_MARGIN 4
 #define CALENDAR_MARGIN 0
@@ -91,6 +92,14 @@
     UIImageView *holidayView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
     holidayView.tag = 888;
     [self addSubview:holidayView];
+    
+    UIImageView *coastalView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
+    coastalView.tag = 777;
+    [self addSubview:coastalView];
+    
+    UIImageView *inlandView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
+    inlandView.tag = 666;
+    [self addSubview:inlandView];
 }
 
 @end
@@ -340,6 +349,23 @@
         } else {
             [holidayView setImage:nil];
         }
+        
+        UIImageView *coastalView = (UIImageView *)[dateButton viewWithTag:777];
+        returnSet = [self.coastalHolidaysArray filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", currentDate, currentDate]];
+        if (returnSet.count  > 0) {
+            [coastalView setImage:[UIImage imageNamed:@"coastalImages"]];
+        } else {
+            [coastalView setImage:nil];
+        }
+        
+        UIImageView *inlandView = (UIImageView *)[dateButton viewWithTag:666];
+        returnSet = [self.inlandHolidaysArray filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", currentDate, currentDate]];
+        if (returnSet.count  > 0) {
+            [inlandView setImage:[UIImage imageNamed:@"inlandImages"]];
+        } else {
+            [inlandView setImage:nil];
+        }
+
         
         dateButton.date = date;
         CKDateItem *item = [[CKDateItem alloc] init];
