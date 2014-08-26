@@ -85,21 +85,45 @@
     } else {
         [self setTitle:@"" forState:UIControlStateNormal];
     }
-    UIView *keyColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 22, 32, 6)];
-    keyColorView.tag = 999;
-    [self addSubview:keyColorView];
     
-    UIImageView *holidayView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
-    holidayView.tag = 888;
-    [self addSubview:holidayView];
+    if (IS_IPHONE)
+    {
+        UIView *keyColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 22,39, 6)];
+        keyColorView.tag = 999;
+        [self addSubview:keyColorView];
+        
+        UIImageView *holidayView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 39, 10)];
+        holidayView.tag = 888;
+        [self addSubview:holidayView];
+        
+        UIImageView *coastalView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 39, 10)];
+        coastalView.tag = 777;
+        [self addSubview:coastalView];
+        
+        UIImageView *inlandView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 39, 10)];
+        inlandView.tag = 666;
+        [self addSubview:inlandView];
+        
+    }
     
-    UIImageView *coastalView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
-    coastalView.tag = 777;
-    [self addSubview:coastalView];
-    
-    UIImageView *inlandView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
-    inlandView.tag = 666;
-    [self addSubview:inlandView];
+    else
+    {
+        UIView *keyColorView = [[UIView alloc] initWithFrame:CGRectMake(0, 22,32, 6)];
+        keyColorView.tag = 999;
+        [self addSubview:keyColorView];
+        
+        UIImageView *holidayView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
+        holidayView.tag = 888;
+        [self addSubview:holidayView];
+        
+        UIImageView *coastalView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
+        coastalView.tag = 777;
+        [self addSubview:coastalView];
+        
+        UIImageView *inlandView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 10)];
+        inlandView.tag = 666;
+        [self addSubview:inlandView];
+    }
 }
 
 @end
@@ -109,6 +133,7 @@
 - (id)init {
     self = [super init];
     if (self) {
+        
         self.backgroundColor = [UIColor whiteColor];
         self.selectedBackgroundColor = [UIColor whiteColor];
         self.textColor = [UIColor colorWithRed:155.0/255 green:158.0/255 blue:160.0/255 alpha:1];
@@ -283,7 +308,7 @@
     newFrame.size.height = containerHeight;// + CALENDAR_MARGIN + TOP_HEIGHT;
     
     if (IS_IPHONE)
-        self.frame = CGRectMake(0, 0, 280, 168);
+        self.frame = CGRectMake(0, 0, 280, containerHeight);
     
     else
         self.frame = CGRectMake(0, 0, 230, 198);
