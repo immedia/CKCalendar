@@ -1,7 +1,3 @@
-#import "CKAppDelegate.h"
-
-#import "CKViewController.h"
-
 @implementation CKAppDelegate
 
 @synthesize window = _window;

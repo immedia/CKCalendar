@@ -67,7 +67,7 @@ typedef enum {
 - (BOOL)date:(NSDate *)date1 isSameDayAsDate:(NSDate *)date2;
 - (BOOL)dateIsInCurrentMonth:(NSDate *)date;
 - (NSDate *)moveToNextMonth:(NSInteger)index;
-- (void)resetMonthForIndex:(NSInteger)index;
+//- (void)resetMonthForIndex:(NSInteger)index;
 
 @end
 

@@ -1,5 +1,3 @@
-#import <CoreGraphics/CoreGraphics.h>
-#import "CKViewController.h"
 #import "CKCalendarView.h"
 
 @interface CKViewController () <CKCalendarDelegate>
